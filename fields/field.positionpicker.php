@@ -165,9 +165,22 @@
 						}
 					}
 					// Filename:
-					foreach($fields as $field) {
+											
+					foreach($fields as $fieldId => $field) {
+
 						if(isset($field['file'])) {
-							$files[$id] = $field['file'];
+						
+							$fieldEntry = FieldManager::fetch($fieldId);
+							$path = $fieldEntry->get('destination');
+							
+							if($path !== null){
+								$files[$id] = str_replace('/workspace','',$path) .'/'.$field['file'];
+							}
+							else{
+								$files[$id] = $field['file'];	
+							}
+							
+							
 							break;
 						}
 					}

@@ -6,7 +6,7 @@ jQuery(function(){
 		var id = $(this).val();
         var field = $(this).parent().parent();
         var pp = $('div.position_picker', field);
-
+		
 
 		if(id != 0) {
 			if(id == -1) {
@@ -15,16 +15,16 @@ jQuery(function(){
 				// Static image
 				var file = $("div.position_picker_vars var.path", field).text();
 
-				pp.html('<img src="' + Symphony.WEBSITE + '/extensions/position_picker/assets/crosshair.gif" class="crosshair" /><img src="' + file + '" class="pic" />');
+				pp.html('<img src="' + Symphony.Context.get('root') + '/extensions/position_picker/assets/crosshair.gif" class="crosshair" /><img src="' + file + '" class="pic" />');
 
 				var originalWidth = $("div.position_picker_vars var.width", field).text(),
 					originalHeight = $("div.position_picker_vars var.height", field).text();
 
 			}
 			else {
-				var file = Symphony.WEBSITE + '/workspace' + $("div.position_picker_vars var[rel=" + id + "].path", field).text();
+				var file = Symphony.Context.get('root') + '/workspace' + $("div.position_picker_vars var[rel=" + id + "].path", field).text();
 
-				pp.html('<img src="' + Symphony.WEBSITE + '/extensions/position_picker/assets/crosshair.gif" class="crosshair" /><img src="' + file + '" class="pic" />');
+				pp.html('<img src="' + Symphony.Context.get('root') + '/extensions/position_picker/assets/crosshair.gif" class="crosshair" /><img src="' + file + '" class="pic" />');
 
 				var originalWidth = $("div.position_picker_vars var[rel=" + id + "].width", field).text(),
 					originalHeight = $("div.position_picker_vars var[rel=" + id + "].height", field).text();
